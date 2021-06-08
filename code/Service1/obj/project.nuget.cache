@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bQ93Mit4GAYBcWWqKQRW/W8ChDZhdt0AWqWbFdSzzZltfudEtuqLC0ie9SCZHyUyAq6kRyiQZ2FsYsMC71KdDA==",
+  "dgSpecHash": "BMDGf+15MVpzLP17LrEMvb+UB+mkKY89ixWm48SL323GN85rP1/D4yUsGA81sIlrM7PJGznhSMpnEBmkTa6qCQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\project2\\Service1\\Service1.csproj",
+  "projectFilePath": "C:\\Projects\\project2\\code\\Service1\\Service1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jordan.bent\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\jordan.bent\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

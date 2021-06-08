@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h/GrG7uxAjqQp+TeVJWgBt5UrdsMUOFWEklxgLLt4aDY6qql4Y4WAdLhk3vP5vH8Y88ARUIBCtpPj+ohEO8fjw==",
+  "dgSpecHash": "9tWFBrUA1rq6IxTpnriuclbkmMMr4rv0wyiQSKaQTMpvTMm+weY3TfRvnCZAIgEYr8bzXqD9X4+qbDYlh9uikw==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\project2\\FrontEnd\\FrontEnd.csproj",
+  "projectFilePath": "C:\\Projects\\project2\\code\\FrontEnd\\FrontEnd.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "htuTXNltCSBFLEhH2O8hVmEVEO5pLYzGnAGZyKuegO7KvsHX4tqYDDBRE4k2siQho9eNR14YH9oEUP+PHi7UGA==",
+  "dgSpecHash": "NCDtk8WiKrZOPTmQtLmdvYLsDkwl2OlZkESahNw+8Hyr+3oC3GJvlbaXn1jc9hYV+RdOQGnYVyBkaZ89sOXQ6g==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\project2\\MergeService\\MergeService.csproj",
+  "projectFilePath": "C:\\Projects\\project2\\code\\MergeService\\MergeService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jordan.bent\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\jordan.bent\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
