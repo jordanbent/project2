@@ -1,27 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MergeService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class mergeController : ControllerBase
+    public class MergeController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        private IConfiguration Configuration;
+        public MergeController(IConfiguration configuration)
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<mergeController> _logger;
-
-        public mergeController(ILogger<mergeController> logger)
-        {
-            _logger = logger;
+            Configuration = configuration;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var colourService = $"{Configuration["colourService"]}/colour";
+            var serviceOneResponseCall = await new HttpClient().GetStringAsync(colourService);
+
+            var fruitService = $"{Configuration["fruitService"]}/fruit";
+            var serviceTwoResponseCall = await new HttpClient().GetStringAsync(fruitService);
+
+            var mergedResponse = $"{serviceOneResponseCall}\n{serviceTwoResponseCall}";
+            return Ok(mergedResponse);
+        }
     }
 }

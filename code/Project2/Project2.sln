@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service1", "..\Service1\Service1.csproj", "{B8D14EB5-774E-4524-BC32-7C3AF903A78A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service1", "..\Service1\Service1.csproj", "{B8D14EB5-774E-4524-BC32-7C3AF903A78A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service2", "..\Service2\Service2.csproj", "{FF4CCDA5-73F4-4002-BB98-36039944AC7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service2", "..\Service2\Service2.csproj", "{FF4CCDA5-73F4-4002-BB98-36039944AC7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergeService", "..\MergeService\MergeService.csproj", "{1C370FAD-23BD-41CB-824E-BD0E8C216254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeService", "..\MergeService\MergeService.csproj", "{1C370FAD-23BD-41CB-824E-BD0E8C216254}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FF4CCDA5-73F4-4002-BB98-36039944AC7D} = {FF4CCDA5-73F4-4002-BB98-36039944AC7D}
+		{B8D14EB5-774E-4524-BC32-7C3AF903A78A} = {B8D14EB5-774E-4524-BC32-7C3AF903A78A}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "..\FrontEnd\FrontEnd.csproj", "{44929F8B-16C4-48A1-A7DE-67EB073A7D48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "..\FrontEnd\FrontEnd.csproj", "{44929F8B-16C4-48A1-A7DE-67EB073A7D48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9tWFBrUA1rq6IxTpnriuclbkmMMr4rv0wyiQSKaQTMpvTMm+weY3TfRvnCZAIgEYr8bzXqD9X4+qbDYlh9uikw==",
+  "dgSpecHash": "KS2+XUfQ8vgqfwl7sO6h8nDn5RTtrxX0eocrc3PlzGXjpeQqq2zpFIPbXV3oKhE7gbJJTySzmPZer6sbBsH6uQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\project2\\code\\FrontEnd\\FrontEnd.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jordan.bent\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
+    "C:\\Users\\jordan.bent\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\jordan.bent\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
