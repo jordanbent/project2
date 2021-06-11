@@ -27,7 +27,10 @@ namespace FrontEnd.Controllers
             var mergedService = $"{configuration["mergeService"]}/merge";
             var serviceThreeResponseCall = await new HttpClient().GetStringAsync(mergedService);
             var response = serviceThreeResponseCall.Split("\n");
-            ViewBag.colour = response[0];
+
+            var colours = response[0].Split("/");
+            ViewBag.colour = colours[0];
+            ViewBag.colourName = colours[1];
             ViewBag.fruit = response[1];
             return View();
         }
