@@ -34,7 +34,9 @@ namespace FrontEnd.Controllers
             {
                 ViewBag.textColour = "#FFFFFF";
             }
-            ViewBag.fruit = response[2];
+            ViewBag.colourLogic = response[2];
+            ViewBag.fruit = response[3];
+            ViewBag.fruitLogic = response[4];
             return View();
         }
     }

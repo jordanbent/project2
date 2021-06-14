@@ -23,7 +23,7 @@ namespace Service1.Controllers
             double blue = Int32.Parse(colourHex.Substring(5, 2), System.Globalization.NumberStyles.HexNumber);
             Console.WriteLine("blue= " + blue);
 
-            // Difference Tolerance = 5%
+            // Difference Percentage
             double RG = ((System.Math.Abs(red - green)) / 255) * 100;
             Console.WriteLine("RG= " + RG);
             double GB = ((System.Math.Abs(green - blue)) / 255) * 100;

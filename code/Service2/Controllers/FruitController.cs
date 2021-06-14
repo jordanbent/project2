@@ -16,7 +16,7 @@ namespace Service2.Controllers
                                     "Cherries", "Cucumbers", "Dates", "Dragon Fruit",
                                     "Elderberry", "Fig", "Grapefruit", "Grapes", "Gooseberries", "Guava",
                                     "Jackfruit", "Kiwi", "Kumquat", "Lime", "Lychee", "Mango",
-                                    "Mandarin Orange", "Melon", "Nectarine", "Olive", "Oranges",
+                                    "Mandarin", "Melon", "Nectarine", "Olive", "Oranges",
                                     "Papaya", "Peach", "Pomegranate", "Pineapple", "Passion Fruit",
                                     "Strawberries", "Watermelon"};
         private int getIndex()
