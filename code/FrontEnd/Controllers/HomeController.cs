@@ -28,10 +28,13 @@ namespace FrontEnd.Controllers
             var serviceThreeResponseCall = await new HttpClient().GetStringAsync(mergedService);
             var response = serviceThreeResponseCall.Split("\n");
 
-            var colours = response[0].Split("/");
-            ViewBag.colour = colours[0];
-            ViewBag.colourName = colours[1];
-            ViewBag.fruit = response[1];
+            ViewBag.colour = response[0];
+            ViewBag.colourName = response[1];
+            if(response[1].Equals("Black"))
+            {
+                ViewBag.textColour = "#FFFFFF";
+            }
+            ViewBag.fruit = response[2];
             return View();
         }
     }
