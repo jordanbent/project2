@@ -25,11 +25,16 @@ namespace Service2.Controllers
             return random.Next(fruits.Length);
         }
 
+        private string getFruit(int index)
+        {
+            return fruits[index];
+        }
 
         [HttpGet]
         public ActionResult<string> getFruit()
         {
-            return fruits[getIndex()];
+            int index = getIndex();
+            return getFruit(index);
         }
     }
 }
