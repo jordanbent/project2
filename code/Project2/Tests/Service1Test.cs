@@ -3,6 +3,7 @@ using Xunit;
 using Service1;
 using Service1.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Tests
 {
