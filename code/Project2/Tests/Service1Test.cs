@@ -10,12 +10,15 @@ namespace Tests
     public class Service1Test
     {
         [Fact]
-        public void ColourControllerTest()
+        public void ColourControllerTest1()
         {
-            ColourController tester = new ColourController();
-            ActionResult<string> colour = tester.getColour();
+            for (int i = 0; i < 200; i++)
+            {
+                ColourController tester = new ColourController();
+                ActionResult<string> colour = tester.getColour();
 
-            Assert.NotNull(colour);
+                Assert.NotNull(colour);
+            }
         }
     }
 }
