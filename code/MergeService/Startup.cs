@@ -17,31 +17,19 @@ namespace MergeService
 {
     [ExcludeFromCodeCoverage]
     public class Startup
-    {
-        
-        public Startup(IWebHostEnvironment env)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-            builder.AddEnvironmentVariables();
-            Configuration = builder.Build();
-        }
-        /*
+    {        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }*/
+        }
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddRouting(r => r.LowercaseUrls = true);
             services.AddControllers();
-            services.Configure<AppSettings>(options => Configuration.GetSection("AppSettings").Bind(options));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MergeService", Version = "v1" });
