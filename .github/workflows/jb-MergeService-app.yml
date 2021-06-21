@@ -9,7 +9,7 @@ env:
   AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.jb_MergeService_app_33ce }}
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 5.0.x
-  WORKING_DIRECTORY: vice
+  WORKING_DIRECTORY: ./code/MergeService
 jobs:
   build-and-deploy:
     runs-on: windows-latest
