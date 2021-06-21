@@ -15,10 +15,16 @@ namespace MergeService.Controllers
     [Route("[controller]")]
     public class MergeController : ControllerBase
     {
-        private IConfiguration Configuration;
+        /*private IConfiguration Configuration;
         public MergeController(IConfiguration configuration) 
         {
             Configuration = configuration;
+        }*/
+        
+        private AppSettings Configuration;
+        public MergeController(IOptions<AppSettings> configuration)
+        {
+            Configuration = configuration.Value;
         }
 
         private string colourLogic(string colourName)
@@ -116,7 +122,7 @@ namespace MergeService.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var colourService = $"https://jb-service1-app.azurewebsites.net/colour";
+            var colourService = $"{Configuration.colourService}/colour";
             var colour = "";
             var colourName = "";
             var serviceOneResponseCall = await new HttpClient().GetStringAsync(colourService);
@@ -126,7 +132,7 @@ namespace MergeService.Controllers
             colourName = colourResponse[1];
             var cLogic = colourLogic(colourName);
 
-            var fruitService = $"https://jb-service2-app.azurewebsites.net/fruit";
+            var fruitService = $"{Configuration.fruitService}/fruit";
             var serviceTwoResponseCall = await new HttpClient().GetStringAsync(fruitService);
             var fLogic = fruitLogic(serviceTwoResponseCall);
 

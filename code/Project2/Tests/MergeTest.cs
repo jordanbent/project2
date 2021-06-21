@@ -15,7 +15,32 @@ namespace Tests
 {
     public class MergeTest
     {
+        
+        private AppSettings appSettings = new AppSettings()
+        {
+            colourService = "https://testservice1-jb.azurewebsites.net",
+            fruitService = "https://testservice2-jb.azurewebsites.net"
+        };
+
+        private Mock<IOptions<AppSettings>> mockConfig;
+
+        [Fact]
+        public void MergeControllerTest()
+        {
+            mockConfig = new Mock<IOptions<AppSettings>>();
+            mockConfig.Setup(x => x.Value).Returns(appSettings);
+
+            MergeController tester = new MergeController(mockConfig.Object);
+            Task<IActionResult> merge = tester.Get();
+
+            Assert.NotNull(merge);
+            Console.WriteLine(merge);
+            Assert.IsType<OkObjectResult>(merge);
+        }
+
+        /*
         private Mock<IConfiguration> mockConfig;
+        private Mock<ILogger<MergeController>> logger;
 
         [Fact]
         public void MergeControllerTest()
@@ -27,6 +52,6 @@ namespace Tests
 
             Assert.NotNull(merge);
             Assert.IsType<Task<IActionResult>>(merge);
-        }
+        }    */
     }
 }
