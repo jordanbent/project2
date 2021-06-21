@@ -18,6 +18,7 @@ namespace Tests
                 ActionResult<string> colour = tester.getColour();
 
                 Assert.NotNull(colour);
+                Assert.IsType<ActionResult<string>>(colour);
             }
         }
     }

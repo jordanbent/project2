@@ -15,6 +15,12 @@ namespace MergeService.Controllers
     [Route("[controller]")]
     public class MergeController : ControllerBase
     {
+        /*private IConfiguration Configuration;
+        public MergeController(IConfiguration configuration) 
+        {
+            Configuration = configuration;
+        }*/
+        
         private AppSettings Configuration;
         public MergeController(IOptions<AppSettings> configuration)
         {

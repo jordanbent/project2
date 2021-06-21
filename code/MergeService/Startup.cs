@@ -18,6 +18,7 @@ namespace MergeService
     [ExcludeFromCodeCoverage]
     public class Startup
     {
+        
         public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -27,6 +28,11 @@ namespace MergeService
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
+        /*
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }*/
 
         public IConfiguration Configuration { get; }
 
