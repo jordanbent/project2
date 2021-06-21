@@ -1,8 +1,5 @@
 # Fruit and Colour Predictor
-This is my implementation of a 4 service application. This application consists of a front-end Web App that is 
-interacted with by the user. This service invokes a second service that produces the content to be shown on 
-the front-end Web App. This service invokes two other services that each produce half of the information
-needed by the second service to produce the final content.
+This is my implementation of a 4 service application. This application consists of a front-end Web App that is interacted with by the user. This service invokes a second service that produces the content to be shown on the front-end Web App. This service invokes two other services that each produce half of the information needed by the second service to produce the final content.
 
 ![App WorkFlow](./imgs/workflow.png)
 
@@ -30,7 +27,8 @@ https://graf1x.com/color-psychology-emotion-meaning-poster/
 7. [Issues and Improvements](#issues)
 
 ## Technologies Used <a name="technologiesused"></a>
-This application is a ASP.NET Core MVC Web Applcation with an Azure Database, deployed on Azure App Services.
+This application consist of a ASP.NET Core MVC Web Application, the front-end, and three ASP.NET Web API Applications, the services. Each application is deployed to Azure Web App Service, which is deployed automatically using Terraform. 
+
 * ASP.NET
 * C#
 * Git

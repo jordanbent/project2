@@ -18,8 +18,8 @@ namespace Tests
         
         private AppSettings appSettings = new AppSettings()
         {
-            colourService = "https://testservice1-jb.azurewebsites.net/colour",
-            fruitService = "https://testservice2-jb.azurewebsites.net/fruit"
+            colourService = "https://testservice1-jb.azurewebsites.net",
+            fruitService = "https://testservice2-jb.azurewebsites.net"
         };
 
         private Mock<IOptions<AppSettings>> mockConfig;
@@ -35,7 +35,7 @@ namespace Tests
 
             Assert.NotNull(merge);
             Console.WriteLine(merge);
-           // Assert.IsType<OkObjectResult>(merge);
+            Assert.IsType<OkObjectResult>(merge);
         }
 
         /*
