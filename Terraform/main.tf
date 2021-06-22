@@ -18,11 +18,19 @@ variable "project_name" {
 
 locals {
   name_location = {
-    "FrontEnd"     = "uksouth"
-    "MergeService" = "uksouth"
-    "Service1"     = "uksouth"
-    "Service2"     = "uksouth"
+    "Service1" = "uksouth"
+    "Service2" = "uksouth"
   }
+}
+
+locals {
+  nameMerge     = "MergeService"
+  locationMerge = "uksouth"
+}
+
+locals {
+  nameFront     = "FrontEnd"
+  locationFront = "uksouth"
 }
 
 resource "azurerm_resource_group" "main" {
@@ -41,6 +49,7 @@ resource "azurerm_app_service_plan" "plan" {
   }
 }
 
+#Service1 and Service2
 resource "azurerm_app_service" "appservice" {
 
   for_each = local.name_location
@@ -50,6 +59,43 @@ resource "azurerm_app_service" "appservice" {
   resource_group_name = azurerm_resource_group.main.name
   app_service_plan_id = azurerm_app_service_plan.plan.id
   depends_on          = [azurerm_app_service_plan.plan]
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+#Merge Service
+resource "azurerm_app_service" "appserviceM" {
+
+  name                = "${var.project_name}-${local.nameMerge}-app"
+  location            = local.locationMerge
+  resource_group_name = azurerm_resource_group.main.name
+  app_service_plan_id = azurerm_app_service_plan.plan.id
+  depends_on          = [azurerm_app_service_plan.plan]
+
+  app_settings = {
+    "colourServiceURL" = "https://jb-service1-app.azurewebsites.net"
+    "fruitServiceURL"  = "https://jb-service2-app.azurewebsites.net"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+#~FrontEnd
+resource "azurerm_app_service" "appserviceFE" {
+
+  name                = "${var.project_name}-${local.nameFront}-app"
+  location            = local.locationFront
+  resource_group_name = azurerm_resource_group.main.name
+  app_service_plan_id = azurerm_app_service_plan.plan.id
+  depends_on          = [azurerm_app_service_plan.plan]
+
+  app_settings = {
+    "mergeServiceURL" = "https://jb-mergeservice-app.azurewebsites.net"
+  }
 
   lifecycle {
     prevent_destroy = true

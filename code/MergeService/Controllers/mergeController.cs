@@ -1,13 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Diagnostics.CodeAnalysis;
 
 namespace MergeService.Controllers
 {
@@ -21,6 +15,10 @@ namespace MergeService.Controllers
             Configuration = configuration;
         }
 
+        /*
+            colourLogic - takes in colour label as a string and returns a corresponding string
+            with a description of the user based on the colour given to them. 
+        */
         private string colourLogic(string colourName)
         {
             switch (colourName)
@@ -44,6 +42,10 @@ namespace MergeService.Controllers
             }
         }
 
+        /*
+            fruitLogic - takes in fruit name as a string and returns a corresponding string
+            with a prediction of the users future, based on the fruit given to them. 
+        */
         private string fruitLogic(string fruit)
         {
             switch (fruit)
@@ -113,6 +115,14 @@ namespace MergeService.Controllers
             }
         }
 
+        /*
+            Get - HTTPGet Request; using configuration settings of the mergeController, the 
+            colourServiceURL and fruitServiceURL are obtained (stored in appsettings.json locally, 
+            and stored in application settings on Azure Web Apps), each API, colourService and fruitService, 
+            is called and the data is returned.
+            Using the two above functions, the logic of the mergeController is applied and concatonated. This
+            string is then sent in the HTTP request.  
+        */
         [HttpGet]
         public async Task<IActionResult> Get()
         {

@@ -1,11 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Service2.Controllers
 {
@@ -20,17 +14,27 @@ namespace Service2.Controllers
                                     "Mandarin", "Melon", "Nectarine", "Olive", "Oranges",
                                     "Papaya", "Peach", "Pomegranate", "Pineapple", "Passion Fruit",
                                     "Strawberries", "Watermelon"};
+        
+        /*
+            getIndex - generates random number between 0 and the max length of the array.
+        */
         private int getIndex()
         {
             Random random = new Random();
             return random.Next(fruits.Length);
         }
 
+        /*
+            getFruit - using a given index, the array is accessed to produce the random fruit.
+        */
         private string getFruit(int index)
         {
             return fruits[index];
         }
 
+        /*
+            getFruit - HTTPGet request; generates a random index and then fetches the random fruit.
+        */
         [HttpGet]
         public ActionResult<string> getFruit()
         {
