@@ -35,6 +35,7 @@ The first implemented service of this application is a random **colour** generat
 **getColour()** - HTTPGet request function; using the two above functions, generates a hexidecimal RGB colour and a label for that colour.
 
 ![Colour Service Web App](./imgs/colourService.png)
+
 *This service is deployed as an Azure Web App: [Colour Service](https://jb-service1-app.azurewebsites.net/colour).*
 
 ### Service Two
@@ -45,6 +46,7 @@ The second service implemented is a random **fruit** generator. With a defined a
 **getFruit()** - HTTPGet request; generates a random index and then fetches the random fruit.
 
 ![Fruit Service Web App](./imgs/fruitService.png)
+
 *This service is deployed as an Azure Web App: [Fruit Service](https://jb-service2-app.azurewebsites.net/fruit).*
 
 ### Merge Service
@@ -55,6 +57,7 @@ The third API service invokes the two previous API's and uses it's own login on 
 **Get()** - HTTPGet Request; using configuration settings of the mergeController, the colourServiceURL and fruitServiceURL are obtained (stored in appsettings.json locally, and stored in application settings on Azure Web Apps), each API, colourService and fruitService, is called and the data is returned. Using the two above functions, the logic of the mergeController is applied and concatonated. This string is then sent in the HTTP request.  
 
 ![Merge Service Web App](./imgs/mergeService.png)
+
 *This service is deployed as an Azure Web App: [Merge Service](https://jb-mergeService-app.azurewebsites.net/merge).*
 
 ### FrontEnd
@@ -63,6 +66,7 @@ The user facing application invokes only the merge service and displays the data
 **Index()** - makes an API call to mergeService, which is done using the mergeServiceURL (stored in appsettings.json locally, and in application settings on Azure Web Apps). The response string is the split and formatted into ViewBags to be used in Index.cshtml.
 
 ![FrontEnd Web App](./imgs/frontend.png)
+
 *This service is deployed as an Azure Web App: [FrontEnd](https://jb-frontend-app.azurewebsites.net/).*
 
 ## Technologies Used <a name="technologiesused"></a>
