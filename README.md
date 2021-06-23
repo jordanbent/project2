@@ -5,25 +5,20 @@ This is my implementation of a 4 service application. This application consists 
 
 # Table of Contents
 1. [Fruit and Colour Predictor](#Intro)
-1. [Technologies Used](#technologiesused)
-2. [Development](#development)
+2. [Technologies Used](#technologiesused)
+3. [Development](#development)
     
     2.1 [Requirements](#requirements)
     
     2.2 [User Stories](#userstories)
 
     2.3 [Trello Board](#trelloboard)
-3. [Architecture](#architecture)
-
-    3.1 [Database](#database)
-    * Entity Relationship Diagram 
-    * Current Live Database
-
-    3.2 [CI Pipeline](#ci)
-4. [Risk Assesment](#risk)
-5. [Testing](#test)
-6. [Front-End](#frontend)
-7. [Issues and Improvements](#issues)
+4. [Architecture](#architecture)
+    4.1 [CI Pipeline](#ci)
+5. [Risk Assesment](#risk)
+6. [Testing](#test)
+7. [Feature Branch](#featurebranch)
+8. [Issues and Improvements](#issues)
 
 ## Fruit and Colour Predictor <a name="Intro"></a>
 
@@ -70,14 +65,14 @@ The user facing application invokes only the merge service and displays the data
 *This service is deployed as an Azure Web App: [FrontEnd](https://jb-frontend-app.azurewebsites.net/).*
 
 ## Technologies Used <a name="technologiesused"></a>
-This application consist of a ASP.NET Core MVC Web Application, for the front-end, and three ASP.NET Web API Applications, for the services. Each application is deployed to Azure Web App Service, which is deployed automatically using Terraform. 
+This application consist of a ASP.NET Core MVC Web Application, for the front-end, and three ASP.NET Web API Applications, for the services. Each application is deployed to Azure Web App Service, which is deployed automatically using Terraform. CI/CD functionality is done through GitHub Actions.
 
-* ASP.NET
+* ASP.NET MVC
+* ASP.NET API
 * C#
 * Git
-* Azure MySQL Database
-* Azure App Service
-* Azure DevOps
+* GitHub Actions
+* Azure Web App Service
 * Trello
 
 ## Development <a name="development"></a>
@@ -89,11 +84,9 @@ This application consist of a ASP.NET Core MVC Web Application, for the front-en
 * 
 ### Trello Board <a name="trelloboard"></a>
 
+![Trello Board](./imgs/trello.png)
 
 ## Architecture <a name="architecture"></a>
-### Database <a name="database"></a>
-#### Entity Relationship Diagram
-
 ### CI Pipeline <a name="ci"></a>
 This was the aimed CI Pipeline implementation
 
@@ -102,7 +95,10 @@ A lot of the risk associated with this project came from
 
 ## Testing <a name="test"></a>
 
-## Front-End <a name="frontend"></a>
+![Testing](./imgs/testing1.png)
+![Testing](./imgs/testing2.png)
+
+## Feature Branch <a name="featurebranch"></a>
 
 ## Issues and Improvements <a name="issues"></a>
 ### Issues

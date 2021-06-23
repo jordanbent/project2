@@ -1,11 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
 
-<div class="text-center" style="background-color:@Convert.ToString(ViewBag.colour)">
-    <h1 class="display-4" style="color:@Convert.ToString(ViewBag.textColour)">@Convert.ToString(ViewBag.colourName) @Convert.ToString(ViewBag.fruit)</h1>
-</div>
-<div class="text-center" >
-    <p>@Convert.ToString(ViewBag.colourLogic)@Convert.ToString(ViewBag.fruitLogic)</p>
-    
-</div>
+<body style="background:@Convert.ToString(ViewBag.colour)">
+    <div class="text-center" style="color:#fff">
+        <h1 style="background: #000">@Convert.ToString(ViewBag.sentence)</h1>
+    </div>
+
+</body>

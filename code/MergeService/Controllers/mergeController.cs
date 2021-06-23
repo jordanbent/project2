@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -17,28 +18,53 @@ namespace MergeService.Controllers
 
         /*
             colourLogic - takes in colour label as a string and returns a corresponding string
-            with a description of the user based on the colour given to them. 
+            with a animal name that is the colour given. 
         */
-        private string colourLogic(string colourName)
+        private string colourLogic(string colourName, int plural)
         {
-            switch (colourName)
+            if (plural == 1)
             {
-                case "White":
-                    return "You are hopeful and innocent, ";
-                case "Grey":
-                    return "You are practical and mature, ";
-                case "Black":
-                    return "You are powerful and mysterious, ";
-                case "Blue":
-                    return "You are honest and loyal, ";
-                case "Red":
-                    return "You are passionate and dramatic, ";
-                case "Green":
-                    return "You are reliable and nourishing, ";
-                case "Yellow":
-                    return "You are optimistic and enthusiactic, ";
-                default:
-                    return "";
+                switch (colourName)
+                {
+                    case "White":
+                        return "Dove";
+                    case "Grey":
+                        return "Mouse";
+                    case "Black":
+                        return "Crow";
+                    case "Blue":
+                        return "Whale";
+                    case "Red":
+                        return "Fox";
+                    case "Green":
+                        return "Lizard";
+                    case "Yellow":
+                        return "Snake";
+                    default:
+                        return "";
+                }
+            }
+            else
+            {
+                switch (colourName)
+                {
+                    case "White":
+                        return "Doves";
+                    case "Grey":
+                        return "Mice";
+                    case "Black":
+                        return "Crows";
+                    case "Blue":
+                        return "Whales";
+                    case "Red":
+                        return "Foxes";
+                    case "Green":
+                        return "Lizards";
+                    case "Yellow":
+                        return "Snakes";
+                    default:
+                        return "";
+                }
             }
         }
 
@@ -46,73 +72,10 @@ namespace MergeService.Controllers
             fruitLogic - takes in fruit name as a string and returns a corresponding string
             with a prediction of the users future, based on the fruit given to them. 
         */
-        private string fruitLogic(string fruit)
+        private int fruitLogic()
         {
-            switch (fruit)
-            {
-                case "Apples":
-                    return "and you will soon be tempted by something forbidden.";
-                case "Apricots":
-                    return "and you will soon have plenty positivity in your life.";
-                case "Bananas":
-                    return "and have a blossoming love life ahead.";
-                case "Blueberries":
-                    return "and will soon be weakened to only recover speedily.";
-                case "Cherries":
-                    return "and you will live a long and healthy life.";
-                case "Cucumbers":
-                    return "and you will soon be able to redeem yourself from any wrong doings.";
-                case "Dates":
-                    return "and you're lide will soon be filled with abundance.";
-                case "Dragon Fruit":
-                    return "and you will soon have a fulfilling victory.";
-                case "Elderberry":
-                    return "and you will be visited by sorrow soon.";
-                case "Fig":
-                    return "and you will soon be enlightened.";
-                case "Grapefruit":
-                    return "and you will soon become overcome with jealousy.";
-                case "Grapes":
-                    return "and you will soon have a joyful week of excess.";
-                case "Gooseberries":
-                    return "and you will soon become deluded.";
-                case "Guava":
-                    return "and soon you will have a great life opportunity presented to you.";
-                case "Jackfruit":
-                    return "and soon all of the hardwork you have put into your passion will pay off.";
-                case "Kiwi":
-                    return "and you will soon be gifted generously with charity.";
-                case "Kumquat":
-                    return "and your home will soon be gifted with prosperity.";
-                case "Lime":
-                    return "and you will soon see your heart filled.";
-                case "Lychee":
-                    return "and you will see a fulfilling and fun Summer.";
-                case "Mango":
-                    return "and you will soon see your most desired wishes come true.";
-                case "Orange":
-                    return "and you will soon be showered in luxuries.";
-                case "Melon":
-                    return "and you will soon be graced with great health and vitality.";
-                case "Olive":
-                    return "and you will soon be at peace within your life.";
-                case "Papaya":
-                    return "and you will soon see your life cleansed and nourished.";
-                case "Peach":
-                    return "and you will live a long life.";
-                case "Pomegranate":
-                    return "and you will soon gain more responsibilties in your life.";
-                case "Pineapple":
-                    return "and you will soon be welcomed with warm arms and celebrated.";
-                case "Passion Fruit":
-                    return "and you will soon have to make a sacrafice.";
-                case "Strawberries":
-                    return "and you will soon become enamoured in love.";
-                case "Watermelon":
-                    return "and you will soon have a long desired time of rest.";
-                default:
-                    return "";
-            }
+            Random random = new Random();
+            return random.Next(minValue: 1, maxValue: 100);
         }
 
         /*
@@ -123,25 +86,39 @@ namespace MergeService.Controllers
             Using the two above functions, the logic of the mergeController is applied and concatonated. This
             string is then sent in the HTTP request.  
         */
+
+        private string makeSentence(string colour, string colourname, string fruit, int number)
+        {
+            if (number == 1)
+                return "There is " + number + " " + colourname.ToLower() + " " + colourLogic(colourname, 1).ToLower() + " eating " + fruit.ToLower() + ".";
+            else
+                return "There are " + number + " " + colourname.ToLower() + " " + colourLogic(colourname, 0).ToLower() + " eating " + fruit.ToLower() + ".";
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             var colourService = $"{Configuration["colourServiceURL"]}/colour";
+            var fruitService = $"{Configuration["fruitServiceURL"]}/fruit";
+
             var colour = "";
             var colourName = "";
+            var fruit = "";
+            var number = 0;
+
             var serviceOneResponseCall = await new HttpClient().GetStringAsync(colourService);
+            var serviceTwoResponseCall = await new HttpClient().GetStringAsync(fruitService);
 
             var colourResponse = serviceOneResponseCall.Split("/");
+            var fruitResponse = serviceTwoResponseCall;
             colour = colourResponse[0];
             colourName = colourResponse[1];
-            var cLogic = colourLogic(colourName);
+            fruit = fruitResponse;
+            number = fruitLogic();
 
-            var fruitService = $"{Configuration["fruitServiceURL"]}/fruit";
-            var serviceTwoResponseCall = await new HttpClient().GetStringAsync(fruitService);
-            var fLogic = fruitLogic(serviceTwoResponseCall);
-
-            var mergedResponse = $"{colour}\n{colourName}\n{cLogic}\n{serviceTwoResponseCall}\n{fLogic}";
+            var mergedResponse = "" + colour + "\n" + makeSentence(colour, colourName, fruit, number);
             return Ok(mergedResponse);
         }
+        
     }
 }
