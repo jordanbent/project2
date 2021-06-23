@@ -1,10 +1,10 @@
-# Fruit and Colour Predictor
+# Fruit and Colour Fortune Teller
 This is my implementation of a 4 service application. This application consists of a front-end Web App that is interacted with by the user. This service invokes a second service that produces the content to be shown on the front-end Web App. This service invokes two other services that each produce half of the information needed by the second service to produce the final content.
 
 ![App WorkFlow](./imgs/workflow.png)
 
 # Table of Contents
-1. [Fruit and Colour Predictor](#Intro)
+1. [Fruit and Colour Fortune Teller](#Intro)
 2. [Technologies Used](#technologiesused)
 3. [Development](#development)
     
@@ -19,7 +19,9 @@ This is my implementation of a 4 service application. This application consists 
 7. [Feature Branch](#featurebranch)
 8. [Issues and Improvements](#issues)
 
-## Fruit and Colour Predictor <a name="Intro"></a>
+## Fruit and Colour Fortune Teller <a name="Intro"></a>
+
+![Fruit and Colour Fortune Teller](./imgs/frontend.mov)
 
 ### Service One 
 The first implemented service of this application is a random **colour** generator. The colour is generated using random hexidecimal RGB values. The colour name is then assigned using a series of thresholds.
