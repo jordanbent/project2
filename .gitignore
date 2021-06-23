@@ -44,7 +44,7 @@ examples/**/test.tfvars
 examples/**/terraform
 examples/**/terraform.zip
 
-# never upload the build to git
+# never upload the build to git ever
 terraform-provider-azurerm
 tf.zip
 /.github/workflows/jb-FrontEnd-app1.yml
