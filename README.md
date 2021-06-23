@@ -13,8 +13,7 @@ This is my implementation of a 4 service application. This application consists 
     2.2 [User Stories](#userstories)
 
     2.3 [Trello Board](#trelloboard)
-4. [Architecture](#architecture)
-    4.1 [CI Pipeline](#ci)
+4. [CI Pipeline](#ci)
 5. [Risk Assesment](#risk)
 6. [Testing](#test)
 7. [Feature Branch](#featurebranch)
@@ -79,17 +78,38 @@ This application consist of a ASP.NET Core MVC Web Application, for the front-en
 ## Development <a name="development"></a>
 
 ### Requirements <a name="requirements"></a>
-* 
-### User Stories <a name="userstories"></a>
-* As a 
-* 
-### Trello Board <a name="trelloboard"></a>
+* Service 1
+    * Colour Generator
+    * API Service
+    * Deployed to Web App
+* Service 2
+    * Fruit Generator
+    * API Service
+    * Deployed to Web App
+* Service 3
+    * Merge Service 1 and Service 2 through API calls
+    * Apply fortune logic
+    * API Service
+    * Deployed to Web App
+* Service 4
+    * User Interface
+    * Call Service 3 through API call
+    * Deployed to Web App
 
+### User Stories <a name="userstories"></a>
+* As a user, I want to be able to generate a random colour and have the colour identified, so that I can have a random colour with it's colour label attached.
+* As a user, I want to be given a random fruit, so that I have the name of a random fruit.  
+* As a user, I want to be given a random colour with a random fruit, so that I can use that information for a purpose.
+* As a developer, I want all my generated code to be fully tested, so that I know I am producing code that meets the requirements stated.
+* As a user, I want a fortune to be told depending on a colour and fruit that is generated, so that I can use that information for a purpose.
+* As a developer, I want my code to be published to the cloud, so that the app is available for users to use.
+
+### Trello Board <a name="trelloboard"></a>
 ![Trello Board](./imgs/trello.png)
 
-## Architecture <a name="architecture"></a>
-### CI Pipeline <a name="ci"></a>
-This was the aimed CI Pipeline implementation
+## CI Pipeline <a name="ci"></a>
+![CI/CD Pipeline](./imgs/CICD.png)
+This is the CI Pipeline implementation. Using Terraform, the Azure resources are created and managed. The creation, management and deployment of the code to the Azure resources is managed by Visual Studio, GitHub and GitHub Actions, respectively. The orange arrows indicate the automated CI Pipeline that is run whenever the main branch of the Git repo is pushed to. 
 
 ## Risk Assesment <a name="risk"></a>
 A lot of the risk associated with this project came from 

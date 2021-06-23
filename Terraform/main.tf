@@ -63,6 +63,10 @@ resource "azurerm_app_service" "appservice" {
   lifecycle {
     prevent_destroy = true
   }
+
+  app_settings = {
+    "WEBSITE_WEBDEPLOY_USE_SCM" = "true"
+  }
 }
 
 #Merge Service
@@ -77,6 +81,7 @@ resource "azurerm_app_service" "appserviceM" {
   app_settings = {
     "colourServiceURL" = "https://jb-service1-app.azurewebsites.net"
     "fruitServiceURL"  = "https://jb-service2-app.azurewebsites.net"
+    "WEBSITE_WEBDEPLOY_USE_SCM" = true
   }
 
   lifecycle {
@@ -95,6 +100,7 @@ resource "azurerm_app_service" "appserviceFE" {
 
   app_settings = {
     "mergeServiceURL" = "https://jb-mergeservice-app.azurewebsites.net"
+    "WEBSITE_WEBDEPLOY_USE_SCM" = true
   }
 
   lifecycle {
