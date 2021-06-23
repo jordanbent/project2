@@ -19,10 +19,18 @@ env:
   WORKING_DIRECTORY_SERVICE2: ./code/Service2
   WORKING_DIRECTORY_MERGE: ./code/MergeService
   WORKING_DIRECTORY_FRONT: ./code/FrontEnd
+  TEST_DIRECTORY: ./code/Project2/Tests
 
 
 jobs:
 
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test
+        run: echo 'Hello Test'
+        #run: dotnet test "${{ env.TEST_DIRECTORY }}" 
   build-and-deploy-service1:
     runs-on: windows-latest
     steps:
