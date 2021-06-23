@@ -90,7 +90,7 @@ namespace MergeService.Controllers
                     return "and you will see a fulfilling and fun Summer.";
                 case "Mango":
                     return "and you will soon see your most desired wishes come true.";
-                case "Orange":
+                case "Oranges":
                     return "and you will soon be showered in luxuries.";
                 case "Melon":
                     return "and you will soon be graced with great health and vitality.";
