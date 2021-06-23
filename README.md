@@ -21,8 +21,6 @@ This is my implementation of a 4 service application. This application consists 
 
 ## Fruit and Colour Fortune Teller <a name="Intro"></a>
 
-![Fruit and Colour Fortune Teller](./imgs/frontend.mov)
-
 ### Service One 
 The first implemented service of this application is a random **colour** generator. The colour is generated using random hexidecimal RGB values. The colour name is then assigned using a series of thresholds.
 
@@ -129,6 +127,7 @@ All controllers were tested using xUnit testing with a code coverage report gene
 * Fine Code Coverage
 
 **Achieved 63.2% code coverge.**
+
 ![Testing](./imgs/testing2.png)
 ![Testing](./imgs/testing1.png)
 
@@ -142,6 +141,7 @@ All controllers were tested using xUnit testing with a code coverage report gene
 ## Issues and Improvements <a name="issues"></a>
 ### Issues
 Issues I see:
+* 
 
 ### Improvements
 I would like to improve:
