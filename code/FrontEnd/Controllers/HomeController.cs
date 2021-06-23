@@ -24,19 +24,12 @@ namespace FrontEnd.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var mergedService = $"{configuration["mergeServiceURL"]}/merge";
+            var mergedService = $"{configuration["mergeService"]}/merge";
             var serviceThreeResponseCall = await new HttpClient().GetStringAsync(mergedService);
             var response = serviceThreeResponseCall.Split("\n");
 
             ViewBag.colour = response[0];
-            ViewBag.colourName = response[1];
-            if (response[1].Equals("Black"))
-            {
-                ViewBag.textColour = "#FFFFFF";
-            }
-            ViewBag.colourLogic = response[2];
-            ViewBag.fruit = response[3];
-            ViewBag.fruitLogic = response[4];
+            ViewBag.sentence = response[1];
             return View();
         }
     }
