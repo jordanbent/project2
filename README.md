@@ -74,6 +74,7 @@ This application consist of a ASP.NET Core MVC Web Application, for the front-en
 * GitHub Actions
 * Azure Web App Service
 * Trello
+* Terraform
 
 ## Development <a name="development"></a>
 
