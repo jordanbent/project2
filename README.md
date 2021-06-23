@@ -108,7 +108,7 @@ This application consist of a ASP.NET Core MVC Web Application, for the front-en
 ![Trello Board](./imgs/trello.png)
 
 ## CI Pipeline <a name="ci"></a>
-![CI/CD Pipeline](./imgs/CICD.png)
+![CI Pipeline](./imgs/pipelines.png)
 This is the CI Pipeline implementation. Using Terraform, the Azure resources are created and managed. The creation, management and deployment of the code to the Azure resources is managed by Visual Studio, GitHub and GitHub Actions, respectively. The orange arrows indicate the automated CI Pipeline that is run whenever the main branch of the Git repo is pushed to. 
 
 ## Risk Assesment <a name="risk"></a>

@@ -47,3 +47,6 @@ examples/**/terraform.zip
 # never upload the build to git
 terraform-provider-azurerm
 tf.zip
+/.github/workflows/jb-FrontEnd-app1.yml
+/.github/workflows/jb-MergeService-app1.yml
+/.github/workflows/jb-Service1-app1.yml
