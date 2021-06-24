@@ -111,8 +111,19 @@ This application consist of a ASP.NET Core MVC Web Application, for the front-en
 ![CI Pipeline](./imgs/pipelines.png)
 This is the CI Pipeline implementation. Using Terraform, the Azure resources are created and managed. The creation, management and deployment of the code to the Azure resources is managed by Visual Studio, GitHub and GitHub Actions, respectively. The orange arrows indicate the automated CI Pipeline that is run whenever the main branch of the Git repo is pushed to. 
 
-### Yaml file
-This 
+### Terraform
+The terraform deployment creates and manages 6 resources within Azure.
+* Resource Group
+* App Service Plan
+* 4 App Services
+
+### Yml
+The yml file generates 5 steps within it.
+* **Test** - deploys testing.
+* **Build and Deploy Service 1** - builds and deploys the pushed code to the Azure App Service.
+* **Build and Deploy Service 2** - builds and deploys the pushed code to the Azure App Service.
+* **Build and Deploy Merge Service** - builds and deploys the pushed code to the Azure App Service.
+* **Build and Deploy FrontEnd** - builds and deploys the pushed code to the Azure App Service.
 
 ## Risk Assesment <a name="risk"></a>
 A lot of the risk associated with this project came from it's being hosted in the Cloud and the risks that come with cloud hosting. There is never full security and servers are prone to failures, so there are some precautions to take.
@@ -139,12 +150,9 @@ All controllers were tested using xUnit testing with a code coverage report gene
 ## Feature Branch <a name="featurebranch"></a>
 
 ## Issues and Improvements <a name="issues"></a>
-### Issues
-Issues I see:
-* 
+Issues I see and would like to improve:
+* Obviously the colour labelling logic isn't perfect, so ideally would love to come up with an algorithim that successfully labels any hexidecimal colour. 
+* The testing, as it is not the most comprehensive and could lead to issues further down the line.
 
-### Improvements
-I would like to improve:
-
-### Additional Features
 I would like to add:
+* The use of more API's, to flesh out the functionality of the application, as it is clearly very basic at the moment, but the architecture itself could to be quite useful.
