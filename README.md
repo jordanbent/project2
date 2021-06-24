@@ -118,6 +118,7 @@ This application consist of a ASP.NET Core MVC Web Application, for the front-en
 
 ## CI Pipeline <a name="ci"></a>
 ![CI Pipeline](./imgs/pipelines.png)
+
 This is the CI Pipeline implementation. Using Terraform, the Azure resources are created and managed. The creation, management and deployment of the code to the Azure resources is managed by Visual Studio, GitHub and GitHub Actions, respectively. The orange arrows indicate the automated CI Pipeline that is run whenever the main branch of the Git repo is pushed to. 
 
 ### Terraform
@@ -129,9 +130,13 @@ The terraform deployment creates and manages 6 resources within Azure.
 ### Yml
 The yml file generates 5 steps within it.
 * **Test** - deploys testing.
+* 
 * **Build and Deploy Service 1** - builds and deploys the pushed code to the Azure App Service.
+* 
 * **Build and Deploy Service 2** - builds and deploys the pushed code to the Azure App Service.
+* 
 * **Build and Deploy Merge Service** - builds and deploys the pushed code to the Azure App Service.
+* 
 * **Build and Deploy FrontEnd** - builds and deploys the pushed code to the Azure App Service.
 
 ## Risk Assesment <a name="risk"></a>
@@ -152,11 +157,15 @@ All controllers were tested using xUnit testing with a code coverage report gene
 ![Testing](./imgs/testing1.png)
 
 **FruitController** - Fully tested.
+
 **ColourController** - Almost fully tested, however due to a large switch statement it was difficult to get testing to 100%.
+
 **MergeService** - Constructor only tested, due to failing HTTP requests and having to keep all non API functions private.
+
 **HomeController** - Constructor only tested, due to failing HTTP requests. 
 
 ## Feature Branch <a name="featurebranch"></a>
+I will now deploy the feature branch.
 
 ## Issues and Improvements <a name="issues"></a>
 Issues I see and would like to improve:
