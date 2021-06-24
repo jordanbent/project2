@@ -25,8 +25,11 @@ This is my implementation of a 4 service application. This application consists 
 The first implemented service of this application is a random **colour** generator. The colour is generated using random hexidecimal RGB values. The colour name is then assigned using a series of thresholds.
 
 **getColourString()** - logic that takes a RGB string and outputs a lable for that colour.
+
 **getRGBHexValue()** - generates a random hexidecimal value.
+
 **getColour()** - HTTPGet request function; using the two above functions, generates a hexidecimal RGB colour and a label for that colour.
+
 
 ![Colour Service Web App](./imgs/colourService.png)
 
@@ -36,8 +39,11 @@ The first implemented service of this application is a random **colour** generat
 The second service implemented is a random **fruit** generator. With a defined array of 32 fruits, as random number is generated to index into the random fruit name. 
 
 **getIndex()** - generates random number between 0 and the max length of the array.
+
 **getFruit()** - using a given index, the array is accessed to produce the random fruit.
+
 **getFruit()** - HTTPGet request; generates a random index and then fetches the random fruit.
+
 
 ![Fruit Service Web App](./imgs/fruitService.png)
 
@@ -47,8 +53,11 @@ The second service implemented is a random **fruit** generator. With a defined a
 The third API service invokes the two previous API's and uses it's own login on the gained data to produce the final data to be see by the user. This *fortune teller* style logic works using switch statements depending on the values given by the two respective API's.
 
 **colourLogic()** - takes in colour label as a string and returns a corresponding string with a description of the user based on the colour given to them, using a switch statement. The theory behind the meaning of the colours was found [here](https://graf1x.com/color-psychology-emotion-meaning-poster/).
+
 **fruitLogic()** - takes in fruit name as a string and returns a corresponding string with a prediction of the users future, based on the fruit given to them, using a switch statement.  
+
 **Get()** - HTTPGet Request; using configuration settings of the mergeController, the colourServiceURL and fruitServiceURL are obtained (stored in appsettings.json locally, and stored in application settings on Azure Web Apps), each API, colourService and fruitService, is called and the data is returned. Using the two above functions, the logic of the mergeController is applied and concatonated. This string is then sent in the HTTP request.  
+
 
 ![Merge Service Web App](./imgs/mergeService.png)
 
