@@ -140,7 +140,7 @@ namespace MergeService.Controllers
             var serviceTwoResponseCall = await new HttpClient().GetStringAsync(fruitService);
             var fLogic = fruitLogic(serviceTwoResponseCall);
 
-            var mergedResponse = $"{colour}\n{colourName}\n{cLogic}\n{serviceTwoResponseCall}\n{fLogic}12";
+            var mergedResponse = $"{colour}\n{colourName}\n{cLogic}\n{serviceTwoResponseCall}\n{fLogic}";
             return Ok(mergedResponse);
         }
     }
